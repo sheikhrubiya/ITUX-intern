@@ -1,0 +1,39 @@
+{
+  "transactions":[
+  {
+    "id":1,
+    "date":"20/11/2024",
+    "amount":"1000",
+    "mode":"neft",
+    "type":"credit"
+  },
+  {
+    "id":2,
+    "date":"10/11/2024",
+    "amount":"5000",
+    "mode":"upi",
+    "type":"debit" 
+  },
+  {
+    "id":3,
+    "date":"15/11/2024",
+    "amount":1000,
+    "mode":"rtgs",
+    "type":"debit"
+  },
+  {
+    "id":4,
+    "date":"12/11/2024",
+    "amount":9000,
+    "mode":"online",
+    "type":"credit"
+  },
+  {
+    "id":5,
+    "date":"18/11/2024",
+    "amount":4000,
+    "mode":"upi",
+    "type":"debit"
+  }
+
+]}
