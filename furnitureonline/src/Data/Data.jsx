@@ -1,0 +1,106 @@
+import React from 'react'
+import almirah from "../assets/furnitures/almirah.jpg"
+import table from "../assets/furnitures/table.jpg"
+import sofa from "../assets/furnitures/bed.jpg"
+import bed from "../assets/furnitures/bed.jpg"
+import chair from "../assets/furnitures/chair.jpg"
+import cabinet from "../assets/furnitures/almirah.jpg"
+const Data =[
+  {
+    id:1,
+    name:"product1",
+    price:"25000",
+    image:bed,
+    category:"Bed",
+    type:"topselling"
+  },
+  {
+    id:2,
+    name:"product2",
+    price:"35000",
+    image:table,
+    category:"Table",
+    type:"featured"
+  },
+  {
+    id:3,
+    name:"product3",
+    price:"45000",
+    image:sofa,
+    category:"Sofa",
+    type:"featured"
+  },
+  {
+    id:4,
+    name:"product4",
+    price:"15000",
+    image:almirah,
+    category:"Almirah",
+    type:"new"
+  },
+  {
+    id:5,
+    name:"product5",
+    price:"55000",
+    image:chair,
+    category:"Chair",
+    type:"topselling"
+  },
+  {
+    id:6,
+    name:"product6",
+    price:"25000",
+    image:sofa,
+    category:"Sofa",
+    type:"featured"
+  },
+  {
+    id:7,
+    name:"product7",
+    price:"25000",
+    image:almirah,
+    category:"Almirah",
+    type:"topselling"
+  },
+  {
+    id:8,
+    name:"product8",
+    price:"25000",
+    image:sofa,
+    category:"Sofa",
+    type:"new"
+  },
+  {
+    id:9,
+    name:"product9",
+    price:"85000",
+    image:bed,
+    category:"Bed",
+    type:"topselling"
+  },
+  {
+    id:10,
+    name:"product10",
+    price:"125000",
+    image:cabinet,
+    category:"Cabinet",
+    type:"new"
+  },
+  {
+    id:11,
+    name:"product11",
+    price:"27000",
+    image:chair,
+    category:"Chair",
+    type:"topselling"
+  },
+  {
+    id:12,
+    name:"product12",
+    price:"45000",
+    image:table,
+    category:"Table",
+    type:"new"
+  },
+]
+export default Data
