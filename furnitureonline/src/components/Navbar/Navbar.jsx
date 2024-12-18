@@ -17,7 +17,6 @@ const Navbar = ({search, setSearch, searchProduct}) => {
     { path: "/products", label: "Products" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" },
-    { path: "/services", label: "Service" },
   ];
 
   const activeClass = ({ isActive }) =>
@@ -38,23 +37,20 @@ const Navbar = ({search, setSearch, searchProduct}) => {
         </div>
 
         {/* Link section */}
-        <div className="hidden md:block">
+        <div className="hidden md:block ml-8">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              className={`${activeClass} mx-4 text-sm font-semibold`}
+              className={`${activeClass} mx-2 text-sm font-semibold`}
             >
               {link.label}
             </NavLink>
           ))}
         </div>
-        {/* Button section className='' */}
-        <button className="primary-btn">Try For Free</button>
-      </motion.div>
-      <div className="w-full h-16">
+        {/* search bar */}
         <div className="p-1 flex flex-row items-center justify-between mt-2">
-          <div className="ml-80">
+          <div className="ml-20">
             <input
               type="text"
               value={search}
@@ -67,7 +63,10 @@ const Navbar = ({search, setSearch, searchProduct}) => {
               <GoSearch />
             </button>
           </div>
-          <div className="flex flex-row gap-10 mr-4">
+         
+        </div>
+        {/* Button section className='' */}
+        <div className="flex flex-row gap-5 mr-5 ml-10">
             <div className="flex flex-col justify-center items-center">
               <button onClick={()=>navigate("/signup")} className="text-2xl">
                 <CgProfile />
@@ -87,8 +86,7 @@ const Navbar = ({search, setSearch, searchProduct}) => {
               <p className="text-sm">Cart</p>
             </div>
           </div>
-        </div>
-      </div>
+      </motion.div>
     </>
   );
 };
