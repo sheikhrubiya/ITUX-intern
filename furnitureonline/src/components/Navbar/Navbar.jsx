@@ -5,11 +5,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { GoSearch } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
 import { FaHeart } from "react-icons/fa";
-import { IoCartOutline } from "react-icons/io5";
+import { IoCartOutline, IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = ({search, setSearch, searchProduct}) => { 
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
   const { loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
   const navLinks = [
@@ -22,71 +22,94 @@ const Navbar = ({search, setSearch, searchProduct}) => {
   const activeClass = ({ isActive }) =>
     `${isActive ? "text-orange-400" : "hover:text-gray-300"} font-medium`;
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
     <>
-      <motion.div
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="container py-4 flex justify-between items-center border-b-gray-700 bg-orange-100 border-2 max-w-full"
-      >
-        {/* Logo section */}
-        <div className="flex items-center gap-3">
-          <img src={logo} alt="logo" className="w-11" />
-          <span className="text-3xl font-bold text-orange-950">Furniture</span>
-        </div>
+       <motion.div
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center border-b-2 border-gray-700 bg-orange-100 max-w-full"
+    >
+      {/* Logo section */}
+      <div className="flex items-center gap-3 w-full md:w-auto flex-shrink-0">
+        <img src={logo} alt="logo" className="w-11" />
+        <span className="text-3xl font-bold text-orange-950">Furniture</span>
+        
+        {/* Mobile menu toggle */}
+        <button 
+          className="md:hidden ml-auto text-2xl"
+          onClick={toggleMobileMenu}
+        >
+          {isMobileMenuOpen ? <IoCloseOutline/> : <IoMenuOutline/>}
+        </button>
+      </div>
 
-        {/* Link section */}
-        <div className="hidden md:block ml-8">
+      {/* Mobile and Desktop Navigation */}
+      <div className={`
+        w-full md:w-auto 
+        ${isMobileMenuOpen ? 'block' : 'hidden'} md:block
+        absolute md:static 
+        left-0 top-full 
+        bg-orange-100 md:bg-transparent
+        border-b md:border-none
+        py-4 md:py-0
+      `}>
+        <div className="flex flex-col md:flex-row items-center justify-center">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              className={`${activeClass} mx-2 text-sm font-semibold`}
+              className={`${activeClass} mx-2 my-2 md:my-0 text-sm font-semibold`}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
             </NavLink>
           ))}
         </div>
-        {/* search bar */}
-        <div className="p-1 flex flex-row items-center justify-between mt-2">
-          <div className="ml-20">
-            <input
-              type="text"
-              value={search}
-              placeholder="Enter item to search.."
-              onChange={(e) => setSearch(e.target.value)}
-              className="border-gray-400 border w-80 h-7 rounded-lg p-2"
-            />
+      </div>
 
-            <button onClick={searchProduct} className="-ml-7">
-              <GoSearch />
-            </button>
-          </div>
-         
+      {/* Search Bar */}
+      <div className="w-full md:w-auto flex items-center justify-center my-4 md:my-0">
+        <div className="relative flex items-center">
+          <input
+            type="text"
+            value={search}
+            placeholder="Enter item to search.."
+            onChange={(e) => setSearch(e.target.value)}
+            className="border-gray-400 border w-full md:w-80 h-10 rounded-lg p-2 pr-10"
+          />
+          <button 
+            onClick={searchProduct} 
+            className="absolute right-2 top-1/2 transform -translate-y-1/2"
+          >
+            <GoSearch />
+          </button>
         </div>
-        {/* Button section className='' */}
-        <div className="flex flex-row gap-5 mr-5 ml-10">
-            <div className="flex flex-col justify-center items-center">
-              <button onClick={()=>navigate("/signup")} className="text-2xl">
-                <CgProfile />
-              </button>
-              <p className="text-sm">Profiles</p>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <button onClick={()=>navigate("/wishlist")} className="text-2xl">
-                <FaHeart />
-              </button>
-              <p className="text-sm">WishList</p>
-            </div>
-            <div className="flex flex-col justify-center items-center">
-              <button onClick={()=>navigate("/cart")} className="text-2xl">
-                <IoCartOutline />
-              </button>
-              <p className="text-sm">Cart</p>
-            </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex flex-row gap-4 md:gap-5 w-full md:w-auto justify-around md:justify-end items-center">
+        {[
+          { icon: <CgProfile />, label: 'Profile', path: '/signup' },
+          { icon: <FaHeart />, label: 'WishList', path: '/wishlist' },
+          { icon: <IoCartOutline />, label: 'Cart', path: '/cart' }
+        ].map((item) => (
+          <div 
+            key={item.label} 
+            className="flex flex-col justify-center items-center cursor-pointer"
+            onClick={() => navigate(item.path)}
+          >
+            <button className="text-2xl">
+              {item.icon}
+            </button>
+            <p className="text-sm">{item.label}</p>
           </div>
-      </motion.div>
+        ))}
+      </div>
+    </motion.div>
     </>
   );
 };
