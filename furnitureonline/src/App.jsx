@@ -15,13 +15,15 @@ import Cart from "./components/Cart/Cart";
 import Signup from "./Signup/Signup";
 import Wishlist from "./components/Wishlist/Wishlist";
 import { useNavigate } from "react-router-dom";
+import Signin from "./Signin/Signin";
+import Profile from "./components/Profile/Profile";
 
 const App = () => {
   const [isAuthenticated, setisAuthenticated] = useState(false);
   const [shop, setShop] = useState(Data);
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
-
+  const [wishlist, setWishlist] = useState([]);
  
 
   const Filter = (x) => {
@@ -34,6 +36,27 @@ const App = () => {
   const allCategoryFilter = () => {
     setShop(Data);
   };
+
+  const addtocart = (product) => {
+    
+    const exist = cart && cart.find((x) => x.id === product.id);
+    if (exist) {
+      alert("This item is already in cart!!");
+    } else {
+      setCart((prev) => [...prev, { ...product, qty: 1 }]);
+      alert("Added to cart!");
+    }
+  };
+
+  const addtowishlist = (product)=>{
+    const exist= wishlist && wishlist.find((x)=>x.id===product.id);
+    if(exist)
+    {alert("Item already in wishlist!")}
+    else{
+      setWishlist((prev) => [...prev, {...product, qty:1}]);
+      alert("Item added in wishlist!")
+    }
+  }
 
   // const searchlength = (search || []).length === 0;
 
@@ -49,21 +72,20 @@ const App = () => {
       setShop(searchfilter);
     }
   };
+  
+ 
+  const logoutRoutes = createBrowserRouter([
+    {
+      path: "/",
+      element: <Signin isAuthenticated={isAuthenticated} setisAuthenticated={setisAuthenticated}/>
+    },
+    {
+      path: "/signup",
+      element: <Signup isAuthenticated={isAuthenticated} setisAuthenticated={setisAuthenticated}/>
+    }
+  ])
 
-  // const addtocart = (product) => {
-  //   if (!isAuthenticated) {
-  //     navigate("/signup");
-  //   }
-  //   const exist = cart && cart.find((x) => x.id === product.id);
-  //   if (exist) {
-  //     alert("This item is already in cart!!");
-  //   } else {
-  //     setCart((prev) => [...prev, { ...product, qty: 1 }]);
-  //     alert("Added to cart!");
-  //   }
-  // };
-
-  const routes = createBrowserRouter([
+  const loginRoutes = createBrowserRouter([
     {
       path: "/",
       element: (
@@ -92,11 +114,12 @@ const App = () => {
           element: (
             <Products
               shop={shop}
-              //addtocart={addtocart}
+              addtocart={addtocart}
               Filter={Filter}
               allCategoryFilter={allCategoryFilter}
               isAuthenticated={isAuthenticated}
               setisAuthenticated={setisAuthenticated}
+              addtowishlist={addtowishlist}
             />
           ),
         },
@@ -112,20 +135,22 @@ const App = () => {
           path: "/cart",
           element: <Cart cart={cart} setCart={setCart} />,
         },
-        {
-          path: "/signup",
-          element: <Signup />,
-        },
+        
         {
           path: "/wishlist",
-          element: <Wishlist />,
+          element: <Wishlist wishlist={wishlist} setWishlist={setWishlist}/>,
         },
+        
+        {
+          path:"/profile",
+          element:<Profile/>
+        }
       ],
     },
   ]);
   return (
     <>
-      <RouterProvider router={routes} />
+      <RouterProvider router={isAuthenticated?loginRoutes:logoutRoutes} />
     </>
   );
 };

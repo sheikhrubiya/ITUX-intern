@@ -47,7 +47,7 @@ const Cart = ({ cart, setCart }) => {
       <div className="m-0 p-0 font-sans box-border">
         <div className="w-full p-5">
           <h3 className="text-2xl uppercase text-black tracking-wider font-semibold">
-            # Cart
+            Your Cart
           </h3>
           {cart && cart.length === 0 && (
             <>
@@ -56,7 +56,7 @@ const Cart = ({ cart, setCart }) => {
                   Your Shopping cart is empty
                 </h2>
                 <Link to="/products">
-                  <button className="ml-80 px-5 py-2.5 mt-2.5 bg-amber-400 text-red-950 border border-yellow-500 font-bold cursor-pointer">
+                  <button className="mt-10 ml-80 w-32 bg-[#8A624A] text-white py-2 rounded hover:bg-[#c17e57] transition">
                     Shop Now
                   </button>
                 </Link>

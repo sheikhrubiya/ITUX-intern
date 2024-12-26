@@ -7,6 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaHeart } from "react-icons/fa";
 import { IoCartOutline, IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 import { useAuth0 } from "@auth0/auth0-react";
+import Profile from "../Profile/Profile";
 
 const Navbar = ({search, setSearch, searchProduct}) => { 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
@@ -18,9 +19,8 @@ const Navbar = ({search, setSearch, searchProduct}) => {
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" },
   ];
-
-  const activeClass = ({ isActive }) =>
-    `${isActive ? "text-orange-400" : "hover:text-gray-300"} font-medium`;
+  
+  const activeClass = ({ isActive }) => `${isActive ? "text-orange-400 relative after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-white" : "hover:text-gray-300"} font-semibold transition-all duration-300 ease-in-out transform hover:scale-105`;
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -31,7 +31,7 @@ const Navbar = ({search, setSearch, searchProduct}) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="container mx-auto px-4 py-4 flex flex-wrap justify-between items-center border-b-2 border-gray-700 bg-orange-100 max-w-full"
+      className="relative container mx-auto px-4 py-4 flex flex-wrap justify-between items-center border-b-2 border-gray-700 bg-[#A48269] max-w-full"
     >
       {/* Logo section */}
       <div className="flex items-center gap-3 w-full md:w-auto flex-shrink-0">
@@ -42,6 +42,8 @@ const Navbar = ({search, setSearch, searchProduct}) => {
         <button 
           className="md:hidden ml-auto text-2xl"
           onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+
         >
           {isMobileMenuOpen ? <IoCloseOutline/> : <IoMenuOutline/>}
         </button>
@@ -49,20 +51,20 @@ const Navbar = ({search, setSearch, searchProduct}) => {
 
       {/* Mobile and Desktop Navigation */}
       <div className={`
-        w-full md:w-auto 
-        ${isMobileMenuOpen ? 'block' : 'hidden'} md:block
+        w-full md:w-auto ${isMobileMenuOpen ? 'block' : 'hidden'} 
+        md:block
         absolute md:static 
-        left-0 top-full 
+        left-0 top-full
         bg-orange-100 md:bg-transparent
         border-b md:border-none
-        py-4 md:py-0
+        py-4 md:py-0 z-50 shadow-md md:shadow-none transition-all duration-300 ease-in-out
       `}>
-        <div className="flex flex-col md:flex-row items-center justify-center">
+        <div className="flex flex-col gap-6 md:flex-row items-center px-4 md:px-0">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              className={`${activeClass} mx-2 my-2 md:my-0 text-sm font-semibold`}
+              className={activeClass}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
@@ -93,7 +95,7 @@ const Navbar = ({search, setSearch, searchProduct}) => {
       {/* Action Buttons */}
       <div className="flex flex-row gap-4 md:gap-5 w-full md:w-auto justify-around md:justify-end items-center">
         {[
-          { icon: <CgProfile />, label: 'Profile', path: '/signup' },
+          { icon: <CgProfile />, label: 'Profile', path: '/profile' },
           { icon: <FaHeart />, label: 'WishList', path: '/wishlist' },
           { icon: <IoCartOutline />, label: 'Cart', path: '/cart' }
         ].map((item) => (

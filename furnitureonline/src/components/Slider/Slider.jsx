@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import image1 from "../../assets/banner.jpg";
 import banner1 from "../../assets/banner4.jpg";
 import banner2 from "../../assets/banner2.jpg";
 import banner3 from "../../assets/banner7.jpg";
-import { div } from "framer-motion/client";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
-import { FaRegDotCircle } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -30,7 +26,7 @@ export default function Slider({ deviceType }) {
     };
 
   return (
-    <div className="w-[90%] md:w-[95%] mx-auto z-10">
+    <div className="w-[97%] md:w-[97%] mx-auto z-10 mt-5">
       <Carousel
         swipeable={true}
         draggable={true}

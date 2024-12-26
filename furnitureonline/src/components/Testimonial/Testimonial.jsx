@@ -43,18 +43,18 @@ const Testimonial = () => {
 
       </motion.div>
       {/* Testimonial cards */}
-      <div className='bg-black p-12'>
+      <div className='bg-[#5A382A] p-12'>
       <div className='container grid grid-cols-1 md:grid-cols-3 gap-10'>
          {
           TestimonialData.map((card)=>{
                return (
-                <div key={card.id} className='bg-red-100 border-[1px] border-gray-500 p-5 text-black group-hover:bg-white hover:text-black duration-300'>
+                <div key={card.id} className='bg-[#A38168] border-[1px] border-gray-500 p-5 text-white group-hover:bg-white hover:text-black duration-300'>
                     {/* upper section */}
                     <div className='flex flex-row items-center gap-3'>
                       <img src={card.img} alt='' className='w-16 h-16 rounded-[100%]'/>
                       <div>
                       <h1 className='text-sm font-bold group-hover:text-black'>{card.name}</h1>  
-                      <p className='text-gray-500 text-xs group-hover:text-black'>{card.designation}</p>
+                      <p className='text-white text-xs group-hover:text-black'>{card.designation}</p>
                       </div>
                       <div className='flex flex-row text-xs mt-2'>
                       <FaStar /><FaStar /><FaStar />
@@ -62,7 +62,7 @@ const Testimonial = () => {
                     </div>
                     {/* bottom section */}
                     <div className='mt-5 border-t-2 border-gray-500/40 pt-5'>
-                      <p className='text-sm text-gray-500 group-hover:text-black duration-300'>{card.text}</p>
+                      <p className='text-sm text-white group-hover:text-black duration-300'>{card.text}</p>
                     </div>
                 </div>
                )

@@ -42,9 +42,9 @@ const Footer = () => {
           <div className='space-y-2'>
                <h1 className='text-xl font-semibold'>Contact Us</h1>
                <ul className='text-base font-semibold space-y-1'>
-                <li><span><FaPhone/></span>
+                <li className='flex gap-5'><span><FaPhone/></span>
                 <a href='#'>+1 504 235476</a></li>
-                <li><span><FaMessage/></span>
+                <li className='flex gap-5'><span><FaMessage/></span>
                 <a href='mailto:contact.furnitures.com'>support@furnitues.com</a></li>
                </ul>
              </div>

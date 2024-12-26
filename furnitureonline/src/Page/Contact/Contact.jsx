@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   FaMapMarkerAlt, 
-  FaPhone, 
+  FaPhoneAlt, 
   FaEnvelope, 
   FaClock, 
   FaUser, 
@@ -62,22 +62,22 @@ const Contact = () => {
           <div className="space-y-6">
             {[
               {
-                icon: <FaMapMarkerAlt className="text-blue-600 text-2xl" />,
+                icon: <FaMapMarkerAlt className="text-[#431407] text-2xl" />,
                 title: 'Address',
                 content: '123 Furniture Lane, Design District, Creative City'
               },
               {
-                icon: <FaPhone className="text-green-600 text-2xl" />,
+                icon: <FaPhoneAlt className="text-[#431407] text-2xl" />,
                 title: 'Phone',
                 content: '(555) 123-4567'
               },
               {
-                icon: <FaEnvelope className="text-purple-600 text-2xl" />,
+                icon: <FaEnvelope className="text-[#431407] text-2xl" />,
                 title: 'Email',
                 content: 'support@furniturehaven.com'
               },
               {
-                icon: <FaClock className="text-red-600 text-2xl" />,
+                icon: <FaClock className="text-[#431407] text-2xl" />,
                 title: 'Hours',
                 content: 'Monday-Saturday: 9am-6pm, Sunday: 11am-4pm'
               }
@@ -109,7 +109,7 @@ const Contact = () => {
             <div className="flex space-x-4">
               <div className="w-1/2">
                 <label htmlFor="name" className="block mb-2 text-gray-700">
-                  <FaUser className="inline mr-2 text-blue-600" /> Name
+                  <FaUser className="inline mr-2 text-[#431407]" /> Name
                 </label>
                 <input
                   type="text"
@@ -118,13 +118,13 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900"
                   placeholder="Your Name"
                 />
               </div>
               <div className="w-1/2">
                 <label htmlFor="email" className="block mb-2 text-gray-700">
-                  <FaMailBulk className="inline mr-2 text-green-600" /> Email
+                  <FaMailBulk className="inline mr-2 text-[#431407]" /> Email
                 </label>
                 <input
                   type="email"
@@ -133,7 +133,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900"
                   placeholder="Your Email"
                 />
               </div>
@@ -141,7 +141,7 @@ const Contact = () => {
 
             <div>
               <label htmlFor="phone" className="block mb-2 text-gray-700">
-                <FaPhone className="inline mr-2 text-purple-600" /> Phone (Optional)
+                <FaPhoneAlt className="inline mr-2 text-[#431407]" /> Phone (Optional)
               </label>
               <input
                 type="tel"
@@ -149,14 +149,14 @@ const Contact = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900"
                 placeholder="Your Phone Number"
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block mb-2 text-gray-700">
-                <FaCommentDots className="inline mr-2 text-red-600" /> Message
+                <FaCommentDots className="inline mr-2 text-[#431407]" /> Message
               </label>
               <textarea
                 id="message"
@@ -165,14 +165,14 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900"
                 placeholder="Your Message"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 flex items-center justify-center space-x-2"
+              className="w-full bg-amber-900 text-white py-3 rounded-lg hover:bg-amber-700 transition duration-300 flex items-center justify-center space-x-2"
             >
               <span>Send Message</span>
             </button>

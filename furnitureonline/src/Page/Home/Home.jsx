@@ -5,6 +5,7 @@ import Banner from "../../components/Banner/Banner";
 import Banner2 from "../../components/Banner/Banner2";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import Data from "../../Data/Data";
+import { div } from "framer-motion/client";
 
 export default function Home() {
   const [trending, setTrending] = useState(Data);
@@ -30,7 +31,7 @@ export default function Home() {
       {/* Trending Products Section */}
       <div className="container mx-auto px-4 py-8">
         {/* Trending Products Header */}
-        <div className="bg-stone-200 p-4 rounded-lg mb-6">
+        <div className="bg-[#A48269] p-4 rounded-lg mb-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <h2 
               onClick={allTrending}
@@ -40,20 +41,26 @@ export default function Home() {
             </h2>
             
             {/* Category Filters */}
-            <div className="flex space-x-4">
+            <div className="relative flex space-x-4">
               {[
                 { label: "New", type: "new" },
                 { label: "Featured", type: "featured" },
                 { label: "Top Selling", type: "topselling" }
               ].map((category) => (
+                <div className="relative">
                 <h3
                   key={category.type}
                   onClick={() => filtercategory(category.type)}
-                  className="text-black text-sm uppercase cursor-pointer hover:text-red-600 transition"
+                  className="text-black text-sm font-semibold uppercase cursor-pointer hover:text-red-600 transition"
                 >
                   {category.label}
                 </h3>
+                
+                </div>
+                
+                
               ))}
+              
             </div>
           </div>
         </div>
@@ -80,13 +87,14 @@ export default function Home() {
                     <AiFillHeart />
                   </button>
                 </div>
+                <div className="absolute top-0 left-0 text-sm text-white bg-red-600">{obj.type}</div>
               </div>
               
               {/* Product Details */}
               <div className="p-4">
                 <h3 className="text-lg font-bold mb-2">{obj.name}</h3>
                 <p className="text-red-600 font-semibold mb-3">${obj.price}</p>
-                <button className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
+                <button className="w-full bg-[#8A624A] text-white py-2 rounded hover:bg-[#c17e57] transition">
                   Add to Cart
                 </button>
               </div>

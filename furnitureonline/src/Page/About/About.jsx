@@ -17,7 +17,7 @@ const About = () => {
           <h1 className="text-4xl font-bold text-gray-800 mb-6">
             Crafting Comfort, 
             <br />
-            <span className="text-blue-600">Designing Dreams</span>
+            <span className="text-[#533B2F]">Designing Dreams</span>
           </h1>
           <p className="text-gray-600 leading-relaxed mb-6">
             At Furniture Haven, we believe that furniture is more than just a functional necessity. 
@@ -26,13 +26,13 @@ const About = () => {
           </p>
           <div className="flex space-x-4">
             <div className="bg-blue-50 p-3 rounded-full">
-              <FaCouch className="text-blue-600 text-3xl" />
+              <FaCouch className="text-[#AF8B71] text-3xl" />
             </div>
             <div className="bg-green-50 p-3 rounded-full">
-              <FaLeaf className="text-green-600 text-3xl" />
+              <FaLeaf className="text-[#AF8B71] text-3xl" />
             </div>
             <div className="bg-purple-50 p-3 rounded-full">
-              <FaHandsHelping className="text-purple-600 text-3xl" />
+              <FaHandsHelping className="text-[#AF8B71] text-3xl" />
             </div>
           </div>
         </div>
@@ -53,17 +53,17 @@ const About = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              icon: <FaTruck className="text-4xl text-blue-600 mb-4" />,
+              icon: <FaTruck className="text-4xl text-[#331B10] mb-4" />,
               title: "Quality Assurance",
               description: "Every piece undergoes rigorous quality checks to ensure durability and excellence."
             },
             {
-              icon: <FaUsers className="text-4xl text-green-600 mb-4" />,
+              icon: <FaUsers className="text-4xl text-[#331B10] mb-4" />,
               title: "Customer First",
               description: "We prioritize your comfort and satisfaction in every interaction and product."
             },
             {
-              icon: <FaAward className="text-4xl text-purple-600 mb-4" />,
+              icon: <FaAward className="text-4xl text-[#331B10] mb-4" />,
               title: "Sustainable Design",
               description: "Committed to eco-friendly practices and responsible manufacturing."
             }
@@ -97,15 +97,15 @@ const About = () => {
         </p>
         <div className="flex justify-center space-x-6">
           <div>
-            <span className="text-4xl font-bold text-blue-600">10+</span>
+            <span className="text-4xl font-bold text-[#331B10]">10+</span>
             <p className="text-gray-600">Years of Experience</p>
           </div>
           <div>
-            <span className="text-4xl font-bold text-green-600">5000+</span>
+            <span className="text-4xl font-bold text-[#331B10]">5000+</span>
             <p className="text-gray-600">Happy Customers</p>
           </div>
           <div>
-            <span className="text-4xl font-bold text-purple-600">500+</span>
+            <span className="text-4xl font-bold text-[#331B10]">500+</span>
             <p className="text-gray-600">Unique Designs</p>
           </div>
         </div>
@@ -120,7 +120,7 @@ const About = () => {
           Have questions or need design advice? Our team of expert designers 
           is ready to help you transform your home.
         </p>
-        <button className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition">
+        <button className="w-28 bg-[#8A624A] text-white py-2 rounded hover:bg-[#c17e57] transition">
           Contact Us
         </button>
       </section>

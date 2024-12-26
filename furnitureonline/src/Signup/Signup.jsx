@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-                                                                 
+import { useNavigate } from "react-router-dom";                                                                 
 
-const Signup = () => {
+const Signup = ({isAuthenticate, setisAuthenticated}) => {
+   const navigate = useNavigate();
+
+   const handleSubmit =function (){
+        navigate("/");
+   }
 
    return (
-    <div className="max-w-full">
+    <div className="w-80 h-80 border-2 border-black ml-80 mt-20">
       <div className="header">
         <div className="text-2xl text-center text-blue-950 ">Sign Up</div>
         <div className="bottom-2 border-black"></div>
@@ -38,10 +43,10 @@ const Signup = () => {
           />
         </div>
         <div className="ml-10 mt-5 gap-5">
-          <button className="tertiary-btn mr-3 bg-blue-800 text-white" type="submit" >
+          <button onClick={handleSubmit} className="tertiary-btn mr-3 bg-blue-800 text-white" type="submit" >
             Sign Up
           </button>
-          <button className="tertiary-btn bg-blue-800 text-white" type="submit">
+          <button onClick={()=>navigate("/")}  className="tertiary-btn bg-blue-800 text-white" type="submit">
             Login
           </button>
         </div>
