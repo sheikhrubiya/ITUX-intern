@@ -119,7 +119,7 @@ const Cart = ({ cart, setCart }) => {
         <div className="bottom">
           {
             cart.length > 0 && 
-            <div className="ml-8">
+            <div className="ml-8"> 
             <div className="total">
               <h4 className="text-xl text-red-700 uppercase font-semibold">Sub Total: ${total}</h4>
             </div>

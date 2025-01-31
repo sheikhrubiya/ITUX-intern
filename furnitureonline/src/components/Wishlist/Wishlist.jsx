@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import image from "../../assets/furnitures/bed.jpg";
 import { FaStar } from "react-icons/fa";
 import { div } from "framer-motion/client";
 import { AiOutlineClose } from "react-icons/ai";
 const Wishlist = ({ wishlist, setWishlist }) => {
+  const [input, setInput] = useState(0);
+
+  const increasebtn =(product)=>{
+    const exist = wishlist.find((x)=>x.id === product.id)
+    
+  }
   return (
+    
     <div className="text-center">
+    
       <h3 className="font-semibold text-lg mt-10">Your WishList</h3>
       <div class="mx-auto container gap-5 px-4 md:px-6 2xl:px-0 py-12 flex justify-center items-center">
         <div>
           {wishlist && wishlist.length > 0 ? (
             wishlist.map((obj) => (
               <div className="flex w-full border-b-2  border-gray-300">
+              <div>
+                <button className="primary-btn" onClick={()=>increasebtn}>+</button>
+                <input type="number" value={obj.qty} />
+                <button className="primary-btn" onClick={()=>decresebtn}>-</button>
+              </div>
                 <div className="img_box">
                   <img className="w-40 h-40 p-2.5" src={obj.image} alt="" />
                 </div>

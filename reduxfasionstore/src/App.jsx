@@ -31,6 +31,7 @@ const App = () => {
   const [Cart, setCart]= useState([]);
   const [wishlist, setWishlist]= useState([]);
   const [search, setSearch] = useState("");
+  
   const addtowishlist=(obj)=>{
    setWishlist((prev)=>[...prev, {...obj, qty:1}])
    alert("Added to cart!");
