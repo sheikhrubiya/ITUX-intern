@@ -277,30 +277,37 @@ const Navbar = ({ search, setSearch, searchProduct }) => {
               </div>
             </aside>
           )}
-          <header className="bg-[#27305B] z-20 h-12 flex relative">
+          <header className="bg-[#27305B] z-20 h-16 flex items-center justify-between px-4 sm:px-6 md:px-8 relative">
             {isClosed && (
               <span
-                className="text-2xl text-white"
+                className="text-2xl text-white lg:hidden"
                 onClick={() => handleSideBar()}
               >
                 <LuAlignJustify className="mt-4 ml-2 hover:text-red-400" />
               </span>
             )}
+
             <img src={logo} className="w-24 h-[60px] ml-4 -mt-3" />
-            <div className="flex flex-row py-1 ml-40 w-[60%] mt-2">
+
+            <div className="flex-grow max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mt-2 flex items-center justify-center sm:ml-4">
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="search 5000+ products"
-                className="px-2 w-80 h-8 border-2 border-gray-400 rounded-md"
+                className="px-2 w-[60%] sm:w-80 h-8 border-2 border-gray-400 rounded-md"
               />
-              <FaSearch className="-ml-8 mt-2" onClick={searchProduct} />
+              <FaSearch
+                className="-ml-8 mt-2 cursor-pointer"
+                onClick={searchProduct}
+              />
             </div>
-            <div className="text-white text-lg mr-10 mt-3 hover:text-amber-500">
-              <NavLink to='/products'>Product</NavLink>
+
+            <div className="hidden md:block text-white text-lg mr-10 mt-3 hover:text-amber-500">
+              <NavLink to="/products">Product</NavLink>
             </div>
-            <div className="flex flex-row text-white text-2xl w-[10%] gap-4 mt-4">
+
+            <div className="flex gap-4 mt-4 text-white text-2xl">
               <div className="hover:text-red-400">
                 <NavLink to="/wishlist">
                   <FaHeart />
@@ -318,7 +325,8 @@ const Navbar = ({ search, setSearch, searchProduct }) => {
               </div>
             </div>
           </header>
-          <div className='w-full h-12 z-20 bg-[#27305B] flex flex-row justify-between px-20 py-2 font-extralight relative sm:hidden'>
+
+          <div className="w-full h-12 z-20 bg-[#27305B] hidden md:flex justify-between px-20 py-2 font-extralight relative">
             {navlinks.map((obj) => (
               <div
                 onMouseEnter={obj.func1}
