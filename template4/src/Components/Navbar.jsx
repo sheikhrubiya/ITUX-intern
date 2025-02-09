@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const navlinks = [
     {
-      path: "/home",
+      path: "/",
       label: "Home",
     },
     {
@@ -35,9 +35,10 @@ const Navbar = () => {
               <NavLink to={obj.path}>{obj.label}</NavLink>
             ))}
           </div>
-          <div className="text-3xl text-white font-bold flex flex-row gap-4 -ml-[80] mt-8 w-10%">
-            <IoCartOutline />
-            <CgProfile />
+          <div className="text-3xl text-white font-bold flex flex-row gap-4 -ml-[80] mt-6 w-10%">
+            <NavLink to="/cart"><IoCartOutline /></NavLink>
+            
+            <NavLink to="/signin"><CgProfile /></NavLink>
           </div>
         </div>
       </div>
